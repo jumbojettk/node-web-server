@@ -6,6 +6,9 @@ const express = require('express');		// load express module to use
 const hbs = require('hbs');				// load hbs (handlebars) to use
 const fs = require('fs');				// load fs (filesync) to use to log all the requests
 
+// set up heroku port or the 3000 for local machine
+const port = process.env.PORT || 3000;
+
 var app = express();					// create express app
 
 // use partial templating for the whole app to be able to reuse templates (like headers and footers etc.)
@@ -121,6 +124,7 @@ app.get('/bad', (req, res) => {
 
 // set up listener port, binding the app to a port on local machine
 // display the message when server running
-app.listen(3000, () => {
-	console.log('Server running on port 3000');
+// use heroku dynamic port
+app.listen(port, () => {
+	console.log(`Server running on port ${port}`);
 });
