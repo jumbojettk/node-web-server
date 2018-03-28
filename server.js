@@ -114,6 +114,18 @@ app.get('/about', (req, res) => {
 	});
 });
 
+// Projects page: /projects
+// Description: a page with the links to all the git hub projects
+app.get('/projects', (req, res) => {
+
+	// render the projects view
+	res.render('projects.hbs', {
+		pageTitle: 'Projects Portfolio',
+		pageBody: 'Below is a list of my projects'
+	});
+});
+
+
 // Bad page (when a request fails): /bad
 app.get('/bad', (req, res) => {
 	// send back a JSON with response saying fail
